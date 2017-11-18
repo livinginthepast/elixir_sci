@@ -1,6 +1,8 @@
 # Sci
 
-**TODO: Add description**
+Scientific computation for Elixir.
+
+Work in progress.
 
 ## Installation
 
@@ -10,7 +12,7 @@ by adding `sci` to your list of dependencies in `mix.exs`:
 ```elixir
 def deps do
   [
-    {:sci, "~> 0.1.0"}
+    {:sci, "~> 0.0.1"}
   ]
 end
 ```
