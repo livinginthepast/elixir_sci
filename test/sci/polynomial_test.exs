@@ -24,10 +24,29 @@ defmodule Sci.PolynomialTest do
 
       expected_output = [
         complex(r: 1),
-        complex(r: 0.15622),
-        complex(r: 0.4937384142000001),
-        complex(r: 0.032908596023320004),
-        complex(r: 0.018137217518334747),
+        complex(r: 0.15622, i: -1.1102230246251565e-16),
+        complex(r: 0.4937384142000001, i: -6.938893903907228e-18),
+        complex(r: 0.032908596023320004, i: 3.469446951953614e-18),
+        complex(r: 0.018137217518334747, i: 4.336808689942018e-19),
+      ]
+
+      assert expected_output == poly(set)
+    end
+
+    test "returns real numbers when all imaginary parts are 0" do
+      set = [
+        complex(r: -0.04544),
+        complex(r: -0.03267),
+        complex(r: -0.03267),
+        complex(r: -0.04544),
+      ]
+
+      expected_output = [
+        1,
+        0.15622,
+        0.009070221699999999,
+        2.31912464256e-4,
+        2.20381388181504e-6,
       ]
 
       assert expected_output == poly(set)
