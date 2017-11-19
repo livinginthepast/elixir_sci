@@ -8,24 +8,41 @@ defmodule Sci.Mixfile do
       elixir: "~> 1.5",
       elixirc_paths: elixirc_paths(Mix.env),
       start_permanent: Mix.env == :prod,
-      deps: deps()
+      deps: deps(),
+      description: description(),
+      package: package(),
+      source_url: "https://github.com/livinginthepast/elixir_sci",
     ]
+  end
+
+  def application do
+    []
+  end
+
+  defp deps do
+    [
+      {:complex_num, "~> 1.1"},
+    ]
+  end
+
+  defp description() do
+    """
+    Scientific computation for Elixir. This package contains ports of functions
+    used for scientific computation and signal processing.
+
+    This package is a work in progress, and may only partially implement
+    certain functions. Contributions are welcome.
+    """
   end
 
   defp elixirc_paths(:test), do: ["lib", "test/support"]
   defp elixirc_paths(_), do: ["lib"]
 
-  # Run "mix help compile.app" to learn about applications.
-  def application do
+  defp package() do
     [
-      extra_applications: [:logger]
-    ]
-  end
-
-  # Run "mix help deps" to learn about dependencies.
-  defp deps do
-    [
-      {:complex_num, "~> 1.1"},
+      licenses: ["MIT"],
+      maintainers: ["Eric Saxby"],
+      links: %{"GitHub" => "https://github.com/livinginthepast/elixir_sci"},
     ]
   end
 end
