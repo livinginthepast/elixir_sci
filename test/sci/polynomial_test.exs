@@ -1,5 +1,6 @@
 defmodule Sci.PolynomialTest do
   use ExUnit.Case
+  doctest Sci.Polynomial
 
   import Sci.Helpers.Sigils
 
