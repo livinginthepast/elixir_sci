@@ -1,7 +1,10 @@
 defmodule Sci.Polynomial.Poly do
   @moduledoc false
 
-  import ComplexNum.Cartesian, only: [imaginary: 1, real: 1]
+  import ComplexNum.Cartesian, only: [real: 1]
+
+  alias Numbers, as: N
+  alias Sci.Helpers.ComplexHelpers, as: CH
 
   def poly([]), do: [1]
   def poly(set) when is_list(set) do
@@ -19,24 +22,19 @@ defmodule Sci.Polynomial.Poly do
     |> Enum.map(&(iterate(&1, accumulator, set |> Enum.at(index - 1))))
   end
 
-  defp iterate({%ComplexNum{} = acc, 0}, _accumulator, _value), do: acc
-  defp iterate({acc, 0}, _accumulator, %ComplexNum{} = _value), do: ComplexNum.new(acc)
   defp iterate({acc, 0}, _accumulator, _value), do: acc
-  defp iterate({acc, index}, accumulator, %ComplexNum{} = value) do
-    ComplexNum.sub(acc, ComplexNum.mult(value, (accumulator |> Enum.at(index - 1))))
-  end
   defp iterate({acc, index}, accumulator, value) do
-    acc - value * (accumulator |> Enum.at(index - 1))
+    N.sub(acc, N.mult(value, (accumulator |> Enum.at(index - 1))))
   end
 
-  defp make_real(coefficients, set) do
-    case set |> Enum.map(&imaginary/1) |> Enum.all?(fn x -> x == 0 end) do
+  defp make_real(coefficients, original_set) do
+    case original_set |> CH.real? do
       true -> coefficients |> Enum.map(&real/1)
       false -> coefficients
     end
   end
 
   defp zeros(set) do
-    [1 | List.duplicate(0, length(set)) ]
+    [ComplexNum.new(1) | List.duplicate(0, length(set)) ]
   end
 end

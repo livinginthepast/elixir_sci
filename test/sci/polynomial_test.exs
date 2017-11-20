@@ -1,7 +1,7 @@
 defmodule Sci.PolynomialTest do
   use ExUnit.Case
 
-  import Test.ComplexHelpers
+  import Sci.Helpers.Sigils
 
   describe "poly/1" do
     import Sci.Polynomial, only: [poly: 1]
@@ -16,18 +16,18 @@ defmodule Sci.PolynomialTest do
 
     test "finds the polynomial coefficients for a list of complex numbers" do
       set = [
-        complex(r: -0.04544, i: 0.66722),
-        complex(r: -0.03267, i: 0.19871),
-        complex(r: -0.03267, i: -0.19871),
-        complex(r: -0.04544, i: -0.66722),
+        ~n{-0.04544+0.66722i},
+        ~n{-0.03267+0.19871i},
+        ~n{-0.03267-0.19871i},
+        ~n{-0.04544-0.66722i},
       ]
 
       expected_output = [
-        complex(r: 1),
-        complex(r: 0.15622, i: -1.1102230246251565e-16),
-        complex(r: 0.4937384142000001, i: -6.938893903907228e-18),
-        complex(r: 0.032908596023320004, i: 3.469446951953614e-18),
-        complex(r: 0.018137217518334747, i: 4.336808689942018e-19),
+        ~n{1},
+        ~n{0.15622-1.1102230246251565e-16i},
+        ~n{0.4937384142000001-6.938893903907228e-18i},
+        ~n{0.032908596023320004+3.469446951953614e-18i},
+        ~n{0.018137217518334747+4.336808689942018e-19i},
       ]
 
       assert expected_output == poly(set)
@@ -35,10 +35,10 @@ defmodule Sci.PolynomialTest do
 
     test "returns real numbers when all imaginary parts are 0" do
       set = [
-        complex(r: -0.04544),
-        complex(r: -0.03267),
-        complex(r: -0.03267),
-        complex(r: -0.04544),
+        ~n{-0.04544},
+        ~n{-0.03267},
+        ~n{-0.03267},
+        ~n{-0.04544},
       ]
 
       expected_output = [
