@@ -1,5 +1,5 @@
 defmodule Sci.Helpers.ComplexHelpersTest do
-  use ExUnit.Case
+  use ExUnit.Case, async: true
   doctest Sci.Helpers.ComplexHelpers
 
   alias Sci.Helpers.ComplexHelpers, as: CH

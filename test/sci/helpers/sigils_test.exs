@@ -1,5 +1,5 @@
 defmodule Sci.Helpers.SigilsTest do
-  use ExUnit.Case
+  use ExUnit.Case, async: true
   doctest Sci.Helpers.Sigils, import: true
 
   import Sci.Helpers.Sigils

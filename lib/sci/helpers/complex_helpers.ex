@@ -6,6 +6,32 @@ defmodule Sci.Helpers.ComplexHelpers do
   alias ComplexNum.Cartesian, as: C
 
   @doc """
+  Make a complex number real if its imaginary component is 0.
+
+  ## Examples
+
+      iex> Sci.Helpers.ComplexHelpers.make_real(1)
+      1
+
+      iex> import Sci.Helpers.Sigils
+      iex> Sci.Helpers.ComplexHelpers.make_real(~n{2+2i})
+      ComplexNum.new(2, 2)
+
+      iex> import Sci.Helpers.Sigils
+      iex> Sci.Helpers.ComplexHelpers.make_real(~n{3+0i})
+      3
+
+  """
+  def make_real(%ComplexNum{mode: ComplexNum.Cartesian} = number) do
+    if real?(number) do
+      C.real(number)
+    else
+      number
+    end
+  end
+  def make_real(number), do: number
+
+  @doc """
   Determines whether a number is real, or a set of numbers is entirely composed
   of real numbers. True for a `ComplexNum` where the imaginary component is 0.
 
