@@ -5,7 +5,8 @@ defmodule Mix.Tasks.Git.Tags.Create do
   def run([]) do
     start_app!()
 
-    Mix.Shell.IO.cmd(command |> Enum.join(" "))
+    Mix.Shell.IO.cmd(command()
+    |> Enum.join(" "))
   end
 
   defp command do

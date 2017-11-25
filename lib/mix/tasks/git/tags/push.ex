@@ -3,7 +3,7 @@ defmodule Mix.Tasks.Git.Tags.Push do
 
   @shortdoc "Pushes all git tags"
   def run([]) do
-    Mix.Shell.IO.cmd(command |> Enum.join(" "))
+    Mix.Shell.IO.cmd(command() |> Enum.join(" "))
   end
 
   defp command do
