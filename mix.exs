@@ -12,11 +12,18 @@ defmodule Sci.Mixfile do
       description: description(),
       package: package(),
       source_url: "https://github.com/livinginthepast/elixir_sci",
+      aliases: aliases(),
     ]
   end
 
   def application do
     []
+  end
+
+  defp aliases do
+    [
+      "hex.publish": ["git.tags.create", "git.tags.push", "hex.publish"]
+    ]
   end
 
   defp deps do
