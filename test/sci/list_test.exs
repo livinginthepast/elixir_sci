@@ -4,6 +4,25 @@ defmodule Sci.ListTest do
 
   import Sci.Helpers.Sigils
 
+  describe "div/2" do
+    alias Sci.List, as: L
+
+    test "raises if the length of the lists are not equal" do
+      assert_raise RuntimeError, "lists must be equal in length", fn ->
+        L.div [1], [2, 3]
+      end
+    end
+
+    test "divides one list by another list" do
+      assert [0.5, 0.25, 3] == L.div([1, 2, 3], [2, 8, 1])
+    end
+
+    test "divides lists of complex numbers" do
+      expected = [~n{0.5+0.5i}, ~n{0.24615384615384617-0.03076923076923077i}]
+      assert expected == L.div([~n{1+1i}, 2], [2, ~n{8+1i}])
+    end
+  end
+
   describe "prod/1" do
     import Sci.List, only: [prod: 1]
 

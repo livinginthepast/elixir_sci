@@ -21,15 +21,21 @@ defmodule Sci.Helpers.ComplexHelpers do
       iex> Sci.Helpers.ComplexHelpers.make_real(~n{3+0i})
       3
 
+      iex> import Sci.Helpers.Sigils
+      iex> Sci.Helpers.ComplexHelpers.make_real(~n{3+7i}, force: true)
+      3
+
   """
-  def make_real(%ComplexNum{mode: ComplexNum.Cartesian} = number) do
+  def make_real(number, opts \\ [force: false])
+  def make_real(number, _opts) when is_number(number), do: number
+  def make_real(%ComplexNum{mode: ComplexNum.Cartesian} = number, force: true), do: C.real(number)
+  def make_real(%ComplexNum{mode: ComplexNum.Cartesian} = number, force: false) do
     if real?(number) do
       C.real(number)
     else
       number
     end
   end
-  def make_real(number), do: number
 
   @doc """
   Determines whether a number is real, or a set of numbers is entirely composed
