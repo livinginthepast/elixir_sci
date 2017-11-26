@@ -3,6 +3,7 @@ Change Log
 
 ## v0.0.3
 
+* Add `Sci.Signal.Transform` with `bilinear/4`
 * Add `Sci.List.prod/1`
 * Start tagging releases in git
 
