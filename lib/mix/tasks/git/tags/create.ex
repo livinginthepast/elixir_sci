@@ -16,7 +16,7 @@ defmodule Mix.Tasks.Git.Tags.Create do
       "-a",
       tag(),
       "-m",
-      description(),
+      "'#{description()}'",
     ]
   end
 
