@@ -1,6 +1,10 @@
 Change Log
 ==========
 
+## v0.0.4
+
+* Rename `~n` to `~i`
+
 ## v0.0.3
 
 * Add `Sci.Signal.Transform` with `bilinear/4`

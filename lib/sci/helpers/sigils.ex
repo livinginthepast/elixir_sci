@@ -1,28 +1,28 @@
 defmodule Sci.Helpers.Sigils do
   @doc """
-  Handles the sigil `~n`
+  Handles the sigil `~i`
 
   Parses the number into a ComplexNum.
 
   ## Examples
 
-      iex> ~n{1}
+      iex> ~i{1}
       ComplexNum.new(1)
 
-      iex> ~n{0.1+12i}
+      iex> ~i{0.1+12i}
       ComplexNum.new(0.1, 12)
 
-      iex> ~n{0.1-0.12e-12i}
+      iex> ~i{0.1-0.12e-12i}
       ComplexNum.new(0.1, -0.12e-12)
 
-      iex> ~n{1.1+3.12e-12i}
+      iex> ~i{1.1+3.12e-12i}
       ComplexNum.new(1.1, 3.12e-12)
 
   """
-  def sigil_n(complex, []) do
+  def sigil_i(complex, []) do
     case Regex.match?(~r/^(\-?[\d\.]+(e\-?\d+)?)\+?(\-?[\d\.]+(e\-?\d+)?i)?$/, complex) do
       true -> parse_complex(complex)
-      _ -> raise "Unable to match complex number of format ~n{0.123±01245i}"
+      _ -> raise "Unable to match complex number of format ~i{0.123±01245i}"
     end
   end
 

@@ -14,15 +14,15 @@ defmodule Sci.Helpers.ComplexHelpers do
       1
 
       iex> import Sci.Helpers.Sigils
-      iex> Sci.Helpers.ComplexHelpers.make_real(~n{2+2i})
+      iex> Sci.Helpers.ComplexHelpers.make_real(~i{2+2i})
       ComplexNum.new(2, 2)
 
       iex> import Sci.Helpers.Sigils
-      iex> Sci.Helpers.ComplexHelpers.make_real(~n{3+0i})
+      iex> Sci.Helpers.ComplexHelpers.make_real(~i{3+0i})
       3
 
       iex> import Sci.Helpers.Sigils
-      iex> Sci.Helpers.ComplexHelpers.make_real(~n{3+7i}, force: true)
+      iex> Sci.Helpers.ComplexHelpers.make_real(~i{3+7i}, force: true)
       3
 
   """

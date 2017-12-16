@@ -18,8 +18,8 @@ defmodule Sci.ListTest do
     end
 
     test "divides lists of complex numbers" do
-      expected = [~n{0.5+0.5i}, ~n{0.24615384615384617-0.03076923076923077i}]
-      assert expected == L.div([~n{1+1i}, 2], [2, ~n{8+1i}])
+      expected = [~i{0.5+0.5i}, ~i{0.24615384615384617-0.03076923076923077i}]
+      assert expected == L.div([~i{1+1i}, 2], [2, ~i{8+1i}])
     end
   end
 
@@ -35,11 +35,11 @@ defmodule Sci.ListTest do
     end
 
     test "can multiply complex numbers" do
-      assert ~n{24+60i} == prod([~n{2+5i}, 3, 4])
+      assert ~i{24+60i} == prod([~i{2+5i}, 3, 4])
     end
 
     test "returns a real number when all complex numbers resolve to 0" do
-      assert 24 == prod([~n{2+0i}, 3, 4])
+      assert 24 == prod([~i{2+0i}, 3, 4])
     end
 
     test "returns the product of N-dimensional lists" do

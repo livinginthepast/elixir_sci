@@ -38,7 +38,7 @@ defmodule Sci.List do
       6
 
       iex> import Sci.Helpers.Sigils
-      iex> Sci.List.prod([~n{1+2i}, 2, 3])
+      iex> Sci.List.prod([~i{1+2i}, 2, 3])
       ComplexNum.new(6, 12)
 
   """
