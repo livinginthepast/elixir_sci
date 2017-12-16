@@ -29,6 +29,7 @@ defmodule Sci.Mixfile do
   defp deps do
     [
       {:complex_num, "~> 1.1"},
+      {:complex_num_sigil, "~> 0.1"},
       {:ex_doc, ">= 0.0.0", only: :dev},
       {:mix_test_watch, "~> 0.5", only: :dev, runtime: false},
     ]

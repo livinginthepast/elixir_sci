@@ -16,7 +16,7 @@ defmodule Sci.Polynomial do
       iex> Sci.Polynomial.poly([1, 2, 3])
       [1, -6, 11, -6]
 
-      iex> import Sci.Helpers.Sigils
+      iex> import ComplexNumSigil
       iex> Sci.Polynomial.poly([~i{1-1i}, ~i{2-1i}, ~i{3-1i}])
       [ComplexNum.new(1), ComplexNum.new(-6, 3), ComplexNum.new(8, -12), ComplexNum.new(0, 10)]
 

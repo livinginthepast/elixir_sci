@@ -1,8 +1,6 @@
 defmodule Sci.ListTest do
-  use ExUnit.Case, async: true
+  use Sci.TestCase, async: true
   doctest Sci.List
-
-  import Sci.Helpers.Sigils
 
   describe "div/2" do
     alias Sci.List, as: L

@@ -1,8 +1,6 @@
 defmodule Sci.PolynomialTest do
-  use ExUnit.Case, async: true
+  use Sci.TestCase, async: true
   doctest Sci.Polynomial
-
-  import Sci.Helpers.Sigils
 
   describe "poly/1" do
     import Sci.Polynomial, only: [poly: 1]

@@ -3,7 +3,7 @@ Change Log
 
 ## v0.0.4
 
-* Rename `~n` to `~i`
+* Use `ComplexNumSigil` instead of writing our own sigil
 
 ## v0.0.3
 

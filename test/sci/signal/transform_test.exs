@@ -1,8 +1,6 @@
 defmodule Sci.Signal.TransformTest do
-  use ExUnit.Case, async: true
+  use Sci.TestCase, async: true
   doctest Sci.Signal.Transform
-
-  import Sci.Helpers.Sigils
 
   describe "bilinear/4" do
     import Sci.Signal.Transform, only: [bilinear: 4]

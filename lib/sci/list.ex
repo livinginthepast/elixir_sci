@@ -21,7 +21,7 @@ defmodule Sci.List do
       try do
         Numbers.div(n, d)
       rescue
-        e in ArithmeticError -> 0
+        _e in ArithmeticError -> 0
       end
     end)
   end
@@ -37,7 +37,7 @@ defmodule Sci.List do
       iex> Sci.List.prod([1, 2, 3])
       6
 
-      iex> import Sci.Helpers.Sigils
+      iex> import ComplexNumSigil
       iex> Sci.List.prod([~i{1+2i}, 2, 3])
       ComplexNum.new(6, 12)
 
